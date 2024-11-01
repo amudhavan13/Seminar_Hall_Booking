@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status - Booking System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <style>
+        body {
+            background: url('https://rb.gy/a7uq89') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .status-container {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <div class="status-container">
+        <h2>Booking Status</h2>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Hall Type</th>
+                <th>Hall Number</th>
+                <th>Club Name</th>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Event Time</th>
+                <th>Event Type</th>
+                <th>Name</th>
+                <th>Dept</th>
+                <th>Email</th>
+            </tr>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.id }}</td>
+                <td>{{ booking.hall_type }}</td>
+                <td>{{ booking.hall_number }}</td>
+                <td>{{ booking.club_name }}</td>
+                <td>{{ booking.event_name }}</td>
+                <td>{{ booking.event_date }}</td>
+                <td>{{ booking.event_time }}</td>
+                <td>{{ booking.event_type }}</td>
+                <td>{{ booking.name }}</td>
+                <td>{{ booking.dept }}</td>
+                <td>{{ booking.email }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>
